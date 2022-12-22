@@ -1,0 +1,32 @@
+export default {
+  translation: {
+    search: 'Поиск',
+    searchPlaceholder: 'Введи имя, тег, почту...',
+    nav: {
+      all: 'Все',
+      designers: 'Designers',
+      analysts: 'Analysts',
+      managers: 'Managers',
+      ios: 'iOS',
+      android: 'Android',
+    },
+    departments: {
+      android: 'Android',
+      ios: 'iOS',
+      design: 'Дизайн',
+      management: 'Менеджмент',
+      qa: 'QA',
+      back_office: 'Бэк-офис',
+      frontend: 'Frontend',
+      hr: 'HR',
+      pr: 'PR',
+      backend: 'Backend',
+      support: 'Техподдержка',
+      analytics: 'Аналитика',
+    },
+    year_one: '{{count}} год',
+    year_few: '{{count}} года',
+    year_many: '{{count}} лет',
+    year_zero: '{{count}} лет',
+  },
+};
