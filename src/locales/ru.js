@@ -2,6 +2,11 @@ export default {
   translation: {
     search: 'Поиск',
     searchPlaceholder: 'Введи имя, тег, почту...',
+    notFound: 'Мы никого не нашли',
+    adjustRequest: 'Попробуйте скорректировать запрос',
+    sorting: 'Сортировка',
+    alphabetically: 'По алфавиту',
+    byBirthday: 'По дню рождения',
     nav: {
       all: 'Все',
       designers: 'Designers',
