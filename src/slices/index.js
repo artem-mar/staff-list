@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import usersReducer, { actions as userActions } from './usersSlice.js';
-import filterReducer, { actions as filterActions } from './filterSlice.js';
+import modalReducer, { actions as modalActions } from './modalSlice.js';
 
 export const actions = {
   ...userActions,
-  ...filterActions,
+  ...modalActions,
 };
 
 export default configureStore({
   reducer: {
     users: usersReducer,
-    filter: filterReducer,
+    modal: modalReducer,
   },
 });
