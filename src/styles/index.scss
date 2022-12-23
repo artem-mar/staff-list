@@ -1,8 +1,6 @@
 @import 'bootstrap/scss/functions';
-// @import 'bootstrap/scss/variables';
 $primary: #6534FF;
 $danger: #F44336;
-// $secondary: #F7F7F8;
 $light: #F7F7F8;
 $input-group-addon-border-color: #F7F7F8;
 $input-border-color: #F7F7F8;
@@ -10,8 +8,14 @@ $input-padding-y: .7rem;
 $input-focus-box-shadow: none;
 $input-focus-border-color: #F7F7F8;
 $font-weight-semibold: 500;
-// меняем переменные тут, после чего они будут добавляться в map внутри variables
-// @import 'bootstrap/scss/variables';
+
+$modal-content-border-radius: 20px;
+$modal-content-border-color: #fff;
+$modal-header-border-color: #fff;
+$modal-header-padding-x: 1.5rem;
+
+$btn-close-width: .9rem;
+$form-check-input-width: 1.25em;
 
 @import 'bootstrap/scss/bootstrap';
 
