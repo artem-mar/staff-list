@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const UserItem = ({ user }) => {
   const {
@@ -8,8 +9,9 @@ const UserItem = ({ user }) => {
   } = user;
 
   const { t } = useTranslation();
-  const birthdayDate = new Date(birthday)
-    .toLocaleString('ru', { day: 'numeric', month: 'short' });
+  const birthdayDate = new Date(birthday).toLocaleString('ru', { day: 'numeric', month: 'short' });
+
+  const sortingRule = useSelector((state) => state.users.sortingRule);
 
   return (
     <div className="d-flex flex-row">
@@ -23,10 +25,11 @@ const UserItem = ({ user }) => {
           </div>
           <small className="text-muted">{t(`departments.${department}`)}</small>
         </div>
-        <div>
-          <span className="text-muted">{birthdayDate}</span>
-          {/* если сортируем по дате */}
-        </div>
+        {sortingRule === 'byBirthday' && (
+          <div>
+            <span className="text-muted">{birthdayDate}</span>
+          </div>
+        )}
       </div>
     </div>
   );

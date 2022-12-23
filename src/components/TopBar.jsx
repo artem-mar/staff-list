@@ -4,14 +4,14 @@ import { InputGroup, Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import searchImg from '../assets/search.svg';
 import filterImg from '../assets/filter.svg';
-import { actions as filterActions } from '../slices/filterSlice.js';
+import { actions } from '../slices/index.js';
 import useDebounce from '../hooks/useDebounce.jsx';
 
 const TopBar = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState(
-    useSelector(({ filter }) => filter.searchString),
+    useSelector(({ users }) => users.searchString),
   );
   const debouncedValue = useDebounce(inputValue);
 
@@ -20,7 +20,7 @@ const TopBar = () => {
   };
 
   useEffect(() => {
-    dispatch(filterActions.setSearchString(debouncedValue));
+    dispatch(actions.setSearchString(debouncedValue));
   }, [debouncedValue]);
 
   return (
@@ -36,7 +36,11 @@ const TopBar = () => {
           onChange={handleChange}
           value={inputValue}
         />
-        <Button variant="light" className="rounded-end">
+        <Button
+          variant="light"
+          className="rounded-end"
+          onClick={() => dispatch(actions.openModal())}
+        >
           <img src={filterImg} alt="filter" />
         </Button>
       </InputGroup>
