@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 
 import { sort, filter } from '../utils.js';
 import { actions as usersActions } from '../slices/usersSlice.js';
-import magnifierImg from '../assets/magnifying-glass.svg';
+import UsersNotFound from './usersNotFound.jsx';
+import CriticalError from './CriticalError.jsx';
 import UserItem from './UserItem.jsx';
 import routes from '../routes.js';
 
 const UsersList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+  const [status, setStatus] = useState('fetching');
 
   const {
     department, searchString, users, sortingRule,
@@ -26,7 +26,9 @@ const UsersList = () => {
       try {
         const { data } = await axios.get(routes.usersByDepartmentApiPath(department));
         dispatch(usersActions.setUsers(data.items));
+        setStatus('ok');
       } catch (err) {
+        setStatus('error');
         console.log(err);
       }
     };
@@ -37,33 +39,35 @@ const UsersList = () => {
   const genLink = (id) => `/user-info?id=${id}`;
 
   return (
-    <ListGroup variant="flush" className="d-flex flex-column">
-      {filteredUsers.length ? (
-        filteredUsers.map((user) => (
-          <ListGroup.Item
-            key={user.id}
-            role="button"
-            onClick={() => {
-              navigate(genLink(user.id));
-            }}
-          >
-            <UserItem user={user} />
-          </ListGroup.Item>
-        ))
-      ) : (
-        <div className="d-flex justify-content-center pt-5">
-          <div className="text-center mt-5">
-            <img src={magnifierImg} alt="magnifying-glass" />
-            <p className="mt-3 fw-semibold fs-5">
-              {t('notFound')}
-            </p>
-            <small className="text-muted fs-5">
-              {t('adjustRequest')}
-            </small>
-          </div>
-        </div>
+    <div className="d-flex flex-column pt-2">
+      {!!filteredUsers.length && (
+        <ListGroup variant="flush" className="d-flex flex-column">
+          {filteredUsers.map((user, i, arr) => (
+            <div key={user.id}>
+              {sortingRule === 'byBirthday'
+                && i !== 0
+                && new Date(arr[i - 1].birthday).getFullYear()
+                  !== new Date(user.birthday).getFullYear() && (
+                  <div className="separator text-center text-muted my-1">
+                    {new Date(arr[i + 1].birthday).getFullYear()}
+                  </div>
+              )}
+              <ListGroup.Item
+                role="button"
+                onClick={() => {
+                  navigate(genLink(user.id));
+                }}
+              >
+                <UserItem user={user} />
+              </ListGroup.Item>
+            </div>
+          ))}
+        </ListGroup>
       )}
-    </ListGroup>
+
+      {status === 'ok' && !filteredUsers.length && <UsersNotFound />}
+      {status === 'error' && <CriticalError />}
+    </div>
   );
 };
 
