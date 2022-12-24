@@ -7,6 +7,13 @@ export default {
     sorting: 'Сортировка',
     alphabetically: 'По алфавиту',
     byBirthday: 'По дню рождения',
+    goAway: 'Поди прочь, окоянный!',
+    toHomePage: 'на главную',
+    error: {
+      everythingIsBroken: 'Какой-то сверхразум все сломал',
+      tryToFix: 'Постараемся быстро починить',
+      tryAgain: 'Попробовать снова',
+    },
     nav: {
       all: 'Все',
       designers: 'Designers',
