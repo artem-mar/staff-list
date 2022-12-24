@@ -6,15 +6,13 @@ import goose from '../assets/goose.svg';
 const PageNotFound = () => {
   const { t } = useTranslation();
   return (
-    <div className="h-100 text-center mt-5">
+    <div className="text-center mt-5">
       <img alt={t('pageNotFound.notFound')} className="img-fluid w-25" src={goose} />
-      <h1 className="h4 text-muted">
-        {t('pageNotFound.notFound')}
+      <h1 className="h4 mt-3">
+        {t('goAway')}
       </h1>
       <p className="text-muted">
-        <span>{t('pageNotFound.go')}</span>
-        {' '}
-        <Link to="/">{t('pageNotFound.toHomePage')}</Link>
+        <Link to="/">{t('toHomePage')}</Link>
       </p>
     </div>
   );
