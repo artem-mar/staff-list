@@ -31,7 +31,7 @@ const TopBar = () => {
     >
       <span className="h3 ms-2">{t('search')}</span>
       <InputGroup className="mt-3">
-        <InputGroup.Text className="bg-light rounded-start text-secondary">
+        <InputGroup.Text className="bg-light rounded-start-circle text-secondary">
           <img src={searchImg} alt="search" />
         </InputGroup.Text>
         <Form.Control
@@ -42,7 +42,7 @@ const TopBar = () => {
         />
         <Button
           variant="light"
-          className="rounded-end"
+          className="rounded-end-circle"
           onClick={() => dispatch(actions.openModal())}
         >
           <img src={filterImg} alt="filter" />

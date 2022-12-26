@@ -28,7 +28,7 @@ const UserInfo = () => {
       <Button
         type="button"
         variant="light"
-        className="position-absolute rounded-5"
+        className="position-absolute rounded-circle"
         style={{
           top: '1rem', left: '1rem', height: '3rem', width: '3rem',
         }}

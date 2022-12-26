@@ -1,4 +1,8 @@
 @import 'bootstrap/scss/functions';
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
 $primary: #6534FF;
 $danger: #F44336;
 $light: #F7F7F8;
@@ -17,6 +21,28 @@ $modal-header-padding-x: 1.5rem;
 $btn-close-width: .9rem;
 $form-check-input-width: 1.25em;
 $list-group-border-width: 0;
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded-start": (
+      property: border-bottom-left-radius border-top-left-radius,
+      class: rounded-start,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        circle: 50%,
+      )
+    ),
+    "rounded-end": (
+      property: border-bottom-right-radius border-top-right-radius,
+      class: rounded-end,
+      values: (
+        null: var(--#{$prefix}border-radius),
+        circle: 50%,
+      )
+    )
+  )
+);
 
 @import 'bootstrap/scss/bootstrap';
 
