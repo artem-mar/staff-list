@@ -29,7 +29,7 @@ const UsersList = () => {
         setStatus('ok');
       } catch (err) {
         setStatus('error');
-        console.log(err);
+        throw err;
       }
     };
 
