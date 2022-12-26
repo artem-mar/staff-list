@@ -49,7 +49,7 @@ const UsersList = () => {
                 && new Date(arr[i - 1].birthday).getFullYear()
                   !== new Date(user.birthday).getFullYear() && (
                   <div className="separator text-center text-muted my-1">
-                    {new Date(arr[i + 1].birthday).getFullYear()}
+                    {new Date(arr[i].birthday).getFullYear()}
                   </div>
               )}
               <ListGroup.Item
