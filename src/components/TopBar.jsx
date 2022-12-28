@@ -49,7 +49,7 @@ const TopBar = () => {
         </Button>
       </InputGroup>
       <Nav
-        className="mt-4 fw-semibold"
+        className="mt-4 fw-medium"
         defaultActiveKey={currentDepartment}
         onSelect={(selectedKey) => {
           dispatch(actions.setDepartment(selectedKey));
