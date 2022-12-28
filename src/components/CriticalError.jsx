@@ -11,7 +11,7 @@ const CriticalError = () => {
         <img src={nloImg} alt="magnifying-glass" />
         <p className="mt-3 fw-semibold fs-5">{t('error.everythingIsBroken')}</p>
         <p><small className="text-muted fs-5">{t('error.tryToFix')}</small></p>
-        <p><a href="/" className="text-primary fs-5">{t('error.tryAgain')}</a></p>
+        <p><a href={window.location.href} className="text-primary fs-5">{t('error.tryAgain')}</a></p>
       </div>
     </div>
   );
