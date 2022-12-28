@@ -2,7 +2,7 @@ const apiPath = 'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/8
 
 const routes = {
   usersApiPath: () => apiPath,
-  usersByDepartmentApiPath: (department) => `${apiPath}?__example=${department}`,
+  usersByDepartmentApiPath: (department = 'all') => `${apiPath}?__example=${department}`,
   mainPath: () => '/',
   userInfoPath: () => '/user-info',
 };
