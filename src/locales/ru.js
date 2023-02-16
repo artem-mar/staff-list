@@ -14,15 +14,8 @@ export default {
       tryToFix: 'Постараемся быстро починить',
       tryAgain: 'Попробовать снова',
     },
-    nav: {
-      all: 'Все',
-      designers: 'Designers',
-      analysts: 'Analysts',
-      managers: 'Managers',
-      ios: 'iOS',
-      android: 'Android',
-    },
     departments: {
+      all: 'Все',
       android: 'Android',
       ios: 'iOS',
       design: 'Дизайн',

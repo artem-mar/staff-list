@@ -9,6 +9,21 @@ import filterImg from '../assets/filter.svg';
 import { actions } from '../slices/index.js';
 import useDebounce from '../hooks/useDebounce.jsx';
 
+const departments = [
+  'frontend',
+  'backend',
+  'android',
+  'ios',
+  'qa',
+  'design',
+  'management',
+  'back_office',
+  'hr',
+  'pr',
+  'analytics',
+  'support',
+];
+
 const TopBar = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -57,34 +72,19 @@ const TopBar = () => {
       >
         <Nav.Item>
           <Nav.Link eventKey="all" className="navlink text-decoration-none">
-            {t('nav.all')}
+            {t('departments.all')}
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="design" className="navlink text-decoration-none">
-            {t('nav.designers')}
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="analytics" className="navlink text-decoration-none">
-            {t('nav.analysts')}
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="management" className="navlink text-decoration-none">
-            {t('nav.managers')}
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="ios" className="navlink text-decoration-none">
-            {t('nav.ios')}
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="android" className="navlink text-decoration-none">
-            {t('nav.android')}
-          </Nav.Link>
-        </Nav.Item>
+
+        {
+          departments.map((department) => (
+            <Nav.Item key={department}>
+              <Nav.Link eventKey={department} className="navlink text-decoration-none">
+                {t(`departments.${department}`)}
+              </Nav.Link>
+            </Nav.Item>
+          ))
+        }
       </Nav>
     </div>
   );
