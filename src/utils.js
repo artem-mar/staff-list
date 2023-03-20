@@ -8,7 +8,7 @@ export const filter = (users, searchString) => users.filter((user) => {
 });
 
 export const sort = {
-  byFirstName: (users) => users.sort((a, b) => {
+  alphabetically: (users) => users.sort((a, b) => {
     if (a.firstName < b.firstName) return -1;
     if (a.firstName > b.firstName) return 1;
     return 0;

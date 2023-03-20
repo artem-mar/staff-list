@@ -25,7 +25,7 @@ const initialState = {
   fetching: 'idle', // pending | fulfilled | rejected
   department: 'all',
   searchString: '',
-  sortingRule: 'byFirstName',
+  sortingRule: 'alphabetically',
 };
 
 const usersSlice = createSlice({

@@ -29,30 +29,22 @@ const SortModal = () => {
       className="border-none rounded-1"
     >
       <Modal.Header closeButton>
-        <Modal.Title className="text-center w-100">
-          {t('sorting')}
-        </Modal.Title>
+        <Modal.Title className="text-center w-100">{t('sorting')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form className="fw-semibold">
-          <Form.Check
-            data-sortrule="byFirstName"
-            name="group-1"
-            className="mb-3"
-            type="radio"
-            label={t('alphabetically')}
-            checked={sortingRule === 'byFirstName'}
-            onChange={handleChange}
-          />
-          <Form.Check
-            data-sortrule="byBirthday"
-            name="group-1"
-            className="mb-1"
-            type="radio"
-            label={t('byBirthday')}
-            checked={sortingRule === 'byBirthday'}
-            onChange={handleChange}
-          />
+          {['alphabetically', 'byBirthday'].map((rule) => (
+            <Form.Check
+              id={rule}
+              key={rule}
+              data-sortrule={rule}
+              className="mb-3"
+              type="radio"
+              label={t(rule)}
+              checked={sortingRule === rule}
+              onChange={handleChange}
+            />
+          ))}
         </Form>
       </Modal.Body>
     </Modal>
